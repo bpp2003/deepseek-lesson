@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% block title %}搜索书籍{% endblock %}
+{% block content %}
+<h2>书籍搜索</h2>
+<form method="post">
+    关键字（书名或索书号）: <input name="keyword"><button type="submit">搜索</button>
+</form>
+{% if books %}
+<table>
+    <tr><th>索书号</th><th>书名</th></tr>
+    {% for cn, title in books %}
+    <tr><td>{{ cn }}</td><td>{{ title }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% block title %}管理员面板{% endblock %}
+{% block content %}
+<h2>图书管理</h2>
+<form method="post">
+    操作:
+    <select name="action">
+        <option value="add">添加</option>
+        <option value="edit">修改</option>
+        <option value="delete">删除</option>
+    </select><br>
+    索书号: <input name="call_number" required><br>
+    书名: <input name="title"><br>
+    <button type="submit">保存</button>
+</form>
+<hr>
+<h3>当前所有书籍</h3>
+<table>
+    <tr><th>索书号</th><th>书名</th></tr>
+    {% for cn, title in books %}
+    <tr><td>{{ cn }}</td><td>{{ title }}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
